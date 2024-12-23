@@ -7,7 +7,7 @@ class RobotsTxtParser
   def read(path)
     begin
       if path.include?("://")
-        raw_data = open(path)
+        raw_data = URI.open(path)
       else
         raw_data = File.open(path)
       end
@@ -37,7 +37,7 @@ class RobotsTxtParser
       end
     end
 
-    add_wildcard_records 
+    add_wildcard_records
   end
 
   def add_wildcard_records
